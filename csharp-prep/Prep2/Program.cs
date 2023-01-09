@@ -7,10 +7,11 @@ class Program
         Console.WriteLine("input score: ");
         string value = Console.ReadLine();
         int score = int.Parse(value);
-        Program.grade(score);
+        string myletter = Program.grade(score);
+        Console.WriteLine(myletter);
     }
  
-    static void grade(int score)
+    static string grade(int score)
     {
         int a = score;
         string letter;
@@ -29,7 +30,7 @@ class Program
         else if (a>=60){letter="D";}
         else
         {letter = "F";}
-        Console.WriteLine(letter);
-        return;
+       // Console.WriteLine(letter);
+        return letter;
     }
 }
