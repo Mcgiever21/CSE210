@@ -65,13 +65,13 @@ class Program
     static void math(List<int> baseNumberList)
     {
         int sum = 0;
-        int n = 0;
+        int counter = 0;
         int largest = -10000;
         int smallest = 10000;
 
         for (int i = 0 ; i<baseNumberList.Count ; i++){
             sum += baseNumberList[i];
-            n += 1;
+            counter += 1;
 
             if (baseNumberList[i]>largest){
                 largest = baseNumberList[i];
