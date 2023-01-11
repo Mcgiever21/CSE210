@@ -11,13 +11,17 @@ class Program
 
         while (looperVariable>0)
         {
-            List<int> baseNumberList = Program.numberEnter();
+            List<float> baseNumberList = Program.numberEnter();
             Console.WriteLine("Do you want the list sorted?");
             string answer = Console.ReadLine();
 
             if(answer == "yes"){
-                List<int> numberlistSorted = new List<int>(Program.sorter(baseNumberList));
-                Console.WriteLine(numberlistSorted);
+                List<float> numberListSorted = new List<float>(Program.sorter(baseNumberList));
+                
+                foreach (float number in numberListSorted)
+                {
+                    Console.WriteLine(number);
+                }
             }
             Program.math(baseNumberList);
             Console.WriteLine("Would you like to run another list?");
@@ -28,30 +32,35 @@ class Program
         }
     }
 
-    static List<int> numberEnter()
+    static List<float> numberEnter()
     {
-        List<int> baseNumberList = new List<int>();
+        List<float> baseNumberList = new List<float>();
         Console.WriteLine("Enter numbers one at a time at promt, enter 0 when finished.");
 
-        int A;
+        float valueInput;
         do
         {
             Console.WriteLine("Enter a number: ");
-            A = int.Parse(Console.ReadLine());
-            baseNumberList.Add(A);
+            valueInput = float.Parse(Console.ReadLine());
+            baseNumberList.Add(valueInput);
 
-        } while (A != 0);
+        } while (valueInput != 0);
 
         Console.WriteLine($"total number of items in list: {baseNumberList.Count}");
+        
+        foreach (float number in baseNumberList)
+        {
+            Console.WriteLine(number);
+        }
 
         return baseNumberList;
     }
     
-    static List<int> sorter(List<int> baseNumberList)
+    static List<float> sorter(List<float> baseNumberList)
     {
-        List<int> listsorted = new List<int>();
+        List<float> listsorted = new List<float>();
         int len = baseNumberList.Count();
-        int i = 1;
+        int i = 0;
         do
         {
             listsorted.Add(baseNumberList[i]);
@@ -62,12 +71,12 @@ class Program
         listsorted.Sort();
         return listsorted;
     }
-    static void math(List<int> baseNumberList)
+    static void math(List<float> baseNumberList)
     {
-        int sum = 0;
+        float sum = 0;
         int counter = 0;
-        int largest = -10000;
-        int smallest = 10000;
+        float largest = -10000;
+        float smallest = 10000;
 
         for (int i = 0 ; i<baseNumberList.Count ; i++){
             sum += baseNumberList[i];
@@ -84,7 +93,7 @@ class Program
 
         Console.WriteLine($"sum of list = {sum}");
 
-        int avg = sum/n;
+        float avg = sum/counter;
 
         Console.WriteLine($"List Average = {avg}");
         Console.WriteLine($"the largest number is {largest}");
