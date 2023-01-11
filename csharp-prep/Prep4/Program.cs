@@ -61,6 +61,7 @@ class Program
         List<float> listsorted = new List<float>();
         int len = baseNumberList.Count();
         int i = 0;
+        
         do
         {
             listsorted.Add(baseNumberList[i]);
@@ -68,7 +69,9 @@ class Program
             len -= 1;
             
         }while(len>0);
+
         listsorted.Sort();
+
         return listsorted;
     }
     static void math(List<float> baseNumberList)
