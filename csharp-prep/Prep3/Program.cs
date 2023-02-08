@@ -30,9 +30,9 @@ class Program
     }
     static void GuessingGame(string input)
     {
-        Console.WriteLine("I am going to pick a number between 1 and 10 \n You have 5 guesses to guess my number.");
+        Console.WriteLine("I am going to pick a number between 1 and 50 \n You have 5 guesses to guess my number.");
         Random randomGenerator = new Random();
-        int answer = randomGenerator.Next(1,10);
+        int answer = randomGenerator.Next(1,50);
         int guesses = 5;
         do
         {
