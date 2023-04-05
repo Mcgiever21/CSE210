@@ -1,9 +1,23 @@
-using System;
-
-class Program
+namespace GoalSetter
 {
-    static void Main(string[] args)
+    
+    using System;
+
+    class Program
     {
-        Console.WriteLine("Hello Develop05 World!");
+        static void Main(string[] args)
+        {
+            Repository repo = new InMemRepository();
+            Goal simpleGoal = new SimpleGoal("Exercise.","I want to exercise once, tomorrow", 1000);
+            Console.WriteLine(simpleGoal.ToString());
+            repo.Add(simpleGoal);
+            int numberOfGoals = repo.GetAll().Count;
+
+            Console.WriteLine($"there are {numberOfGoals} in the system");
+
+            simpleGoal.MarkCompleted();
+            simpleGoal.AddPoints(simpleGoal.GetPoints());
+             Console.WriteLine()
+        }
     }
 }

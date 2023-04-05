@@ -1,9 +1,25 @@
-using System;
-
-class Program
+namespace Vehicle_Security
 {
-    static void Main(string[] args)
+    
+    using System;
+
+    class Program
     {
-        Console.WriteLine("Hello FinalProject World!");
+        static void Main(string[] args)
+        {
+            Camera camera = new Camera();
+            Terminal _terminal = new Terminal();
+            
+            Command_Factory factory = new Command_Factory(camera, _terminal);
+            Command_Format commands = factory.CreateCommands();
+            
+            commands.Get("").Execute();
+            while (true)
+            {
+                string name = _terminal.ReadString("VS> ");
+                commands.Get(name).Execute();     
+            }
+        }
+
     }
 }
