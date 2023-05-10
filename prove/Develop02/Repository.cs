@@ -6,10 +6,11 @@ namespace JournalProgram2
 {
     public class Repository
     {
+        string filename = "";
         public void RecordJournal(List<Entry> journal)
         {
             Console.WriteLine("enter file name to save under:");
-            string filename = Console.ReadLine();
+            filename = Console.ReadLine();
             filename = $"{filename}.txt";
             //string path = $"C:\\Users\\matt-\\Documents\\CSE210\\prove\\Develop02\\{filename}";
             //if(File.Exists(path))
@@ -32,10 +33,11 @@ namespace JournalProgram2
         public List<Entry> RetrieveJournal()
         {
             Console.WriteLine("type in file name to load: ");
-            string filename = Console.ReadLine(); 
-            string path = $"C:\\Users\\matt-\\Documents\\CSE210\\prove\\Develop02\\{filename}";
+            //filename = Console.ReadLine(); 
+            filename = $"{Console.ReadLine()}.txt";
+            //string path = $"C:\\Users\\matt-\\Documents\\CSE210\\prove\\Develop02\\{filename}";
             Journal journal = new Journal();
-            if(File.Exists(path))
+            if(File.Exists(filename))
             {
                 string[] lines = System.IO.File.ReadAllLines(filename);
                 //Journal journal = new Journal();
